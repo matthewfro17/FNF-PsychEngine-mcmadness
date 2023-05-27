@@ -190,7 +190,7 @@ class PlayState extends MusicBeatState
 	var songPercent:Float = 0;
 
 	private var timeBarBG:AttachedSprite;
-	public var timeBar:;
+	public var timeBar;
 
 	public var ratingsData:Array<Rating> = [];
 	public var sicks:Int = 0;
