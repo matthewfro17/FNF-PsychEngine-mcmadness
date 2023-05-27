@@ -184,6 +184,7 @@ class PlayState extends MusicBeatState
 	public var health:Float = 1;
 	public var combo:Int = 0;
 
+	private var healthBarBoder:AttachedSprite;
 	private var healthBarBG:FlxBar;
 	public var healthBar:FlxBar;
 	var songPercent:Float = 0;
@@ -1103,15 +1104,24 @@ class PlayState extends MusicBeatState
 		FlxG.fixedTimestep = false;
 		moveCameraSection();
 	
+		healthBarBorder = new AttachedSprite('coolhealthbar');
+		healthBarBorder.y = FlxG.height * 0.89;
+		healthBarBorder.screenCenter(X);
+		healthBarBorder.scrollFactor.set();
+		healthBarBorder.visible = !ClientPrefs.hideHud;
+		healthBarBorder.xAdd = -4;
+		healthBarBorder.yAdd = -4;
+		add(healthBarBorder);
+		if(ClientPrefs.downScroll) healthBarBorder.y = 0.11 * FlxG.height;
+	
 		healthBarBG = new FlxBar('coolhealthbar');
 		healthBarBG.y = FlxG.height * 0.89;
 		healthBarBG.screenCenter(X);
 		healthBarBG.scrollFactor.set();
 		healthBarBG.visible = !ClientPrefs.hideHud;
-		healthBarBG.xAdd = -4;
-		healthBarBG.yAdd = -4;
 		add(healthBarBG);
 		if(ClientPrefs.downScroll) healthBarBG.y = 0.11 * FlxG.height;
+		healthBarBG = new FlxBar(healthBarBorder.x + 4, healthBarBorder.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBorder.width - 8), Std.int(healthBarBorder.height - 8), this,
 
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
 			'health', 0, 2);
