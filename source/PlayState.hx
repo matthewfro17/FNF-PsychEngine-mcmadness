@@ -1121,7 +1121,6 @@ class PlayState extends MusicBeatState
 		healthBarBG.visible = !ClientPrefs.hideHud;
 		add(healthBarBG);
 		if(ClientPrefs.downScroll) healthBarBG.y = 0.11 * FlxG.height;
-		healthBarBG = new FlxBar(healthBarBorder.x + 4, healthBarBorder.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBorder.width - 8), Std.int(healthBarBorder.height - 8), this,
 
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
 			'health', 0, 2);
